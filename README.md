@@ -1,4 +1,4 @@
-# rlhf-notes
+# Reinforcement Learning from Human Feedback
 Notes and commented code for RLHF (PPO)
 
 The code has been commented by using the trl library from Hugging Face with version 0.7.10: https://github.com/huggingface/trl/
