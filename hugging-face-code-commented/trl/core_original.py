@@ -160,10 +160,6 @@ def clip_by_value(x: torch.Tensor, tensor_min: float, tensor_max: float) -> torc
 
 def entropy_from_logits(logits: torch.Tensor) -> torch.Tensor:
     """Calculate entropy from logits."""
-    # More info here:
-    # 1) Wikipedia: "The convex conjugate of LogSumExp is the negative entropy." - https://en.wikipedia.org/wiki/LogSumExp
-    # 2) https://math.stackexchange.com/questions/2614316/conjugate-function-of-log-sum-exp
-    # 3) The Log-Sum-Exp Trick - https://gregorygundersen.com/blog/2020/02/09/log-sum-exp/
     pd = torch.nn.functional.softmax(logits, dim=-1)
     entropy = torch.logsumexp(logits, axis=-1) - torch.sum(pd * logits, axis=-1)
     return entropy
